@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+</head>
+<style>
+    /* .board{
+    top: 60px;
+    left:750px;
+    position: absolute;
+    display: inline-block;
+    border: solid rgb(3, 3, 3) 10px;
+    width: 570px;
+    height: 570px;
+} */
+
+
+/* .board div{
+    border: solid rgb(12, 12, 12) 1px;
+    background-color: rgb(31, 144, 189);
+    position: absolute;
+    display: inline-block;   
+    width: 12.5%;
+    height: 12.5%;
+    z-index: 2;
+} */
+
+/* .board img{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    z-index: 3;
+    display: inline-block;  
+    justify-content: space-around;
+} */
+
+/* #a1{ background-color: rgb(233, 240, 247);}
+
+#b1{ left: calc(100%/8); }
+
+#c1{ left: calc((100%/8)*2); background-color: rgb(233, 240, 247); }
+
+#d1{ left: calc((100%/8)*3); }
+
+#e1{ left: calc((100%/8)*4); background-color: rgb(233, 240, 247); }
+
+#f1{ left: calc((100%/8)*5); }
+
+#g1{ left: calc((100%/8)*6); background-color: rgb(233, 240, 247); }
+
+#h1{ left: calc((100%/8)*7); }
+
+#rb1{ background-color: rgb(233, 240, 247);}
+
+#kb1{ left: calc(100%/8); }
+
+#bb1{ left: calc((100%/8)*2); background-color: rgb(233, 240, 247); }
+
+#qb{ left: calc((100%/8)*3); }
+
+#kgb{ left: calc((100%/8)*4); background-color: rgb(233, 240, 247); }
+
+#bb2{ left: calc((100%/8)*5); }
+
+#kb2{ left: calc((100%/8)*6); background-color: rgb(233, 240, 247); }
+
+#rb2{ left: calc((100%/8)*7); }
+
+
+
+
+/* #a2{ top: calc(100%/8); }
+
+#b2{ left: calc(100%/8);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247); 
+}
+
+#c2{ left: calc((100%/8)*2);
+     top: calc(100%/8);
+}
+
+#d2{ left: calc((100%/8)*3);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+}
+
+#e2{ left: calc((100%/8)*4);
+     top: calc(100%/8);
+}
+
+#f2{ left: calc((100%/8)*5);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+}
+
+#g2{ left: calc((100%/8)*6);
+     top: calc(100%/8);
+}
+
+#h2{ left: calc((100%/8)*7);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+}
+
+
+#pb1{ top: calc(100%/8); }
+
+#pb2{ left: calc(100%/8);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247); 
+}
+
+#pb3{ left: calc((100%/8)*2);
+     top: calc(100%/8);
+}
+
+#pb4{ left: calc((100%/8)*3);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+}
+
+#pb5{ left: calc((100%/8)*4);
+     top: calc(100%/8);
+}
+
+#pb6{ left: calc((100%/8)*5);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+}
+
+#pb7{ left: calc((100%/8)*6);
+     top: calc(100%/8);
+}
+
+#pb8{ left: calc((100%/8)*7);
+     top: calc(100%/8);
+     background-color: rgb(233, 240, 247);
+} */
+
+
+
+/* #a3{ top: calc((100%/8)*2); background-color: rgb(233, 240, 247); }
+
+#b3{ left: calc(100%/8);
+    top: calc((100%/8)*2);
+}
+
+#c3{ left: calc((100%/8)*2);
+    top: calc((100%/8)*2);
+    background-color: rgb(233, 240, 247);
+}
+
+#d3{ left: calc((100%/8)*3);
+    top: calc((100%/8)*2);
+}
+
+#e3{ left: calc((100%/8)*4);
+    top: calc((100%/8)*2);
+    background-color: rgb(233, 240, 247);
+}
+
+#f3{ left: calc((100%/8)*5);
+    top: calc((100%/8)*2);
+}
+
+#g3{ left: calc((100%/8)*6);
+    top: calc((100%/8)*2);
+    background-color: rgb(233, 240, 247);
+}
+
+#h3{ left: calc((100%/8)*7);
+    top: calc((100%/8)*2);
+}
+
+/*  ////////////////////line-4//////////////////////////////// */
+
+/* #a4{ top: calc((100%/8)*3); }
+
+#b4{ left: calc(100%/8);
+    top: calc((100%/8)*3);
+    background-color: rgb(233, 240, 247);
+}
+
+#c4{ left: calc((100%/8)*2);
+    top: calc((100%/8)*3);
+}
+
+#d4{ left: calc((100%/8)*3);
+    top: calc((100%/8)*3);
+    background-color: rgb(233, 240, 247);
+}
+
+#e4{ left: calc((100%/8)*4);
+    top: calc((100%/8)*3);
+}
+
+#f4{ left: calc((100%/8)*5);
+    top: calc((100%/8)*3);
+    background-color: rgb(233, 240, 247);
+}
+
+#g4{ left: calc((100%/8)*6);
+    top: calc((100%/8)*3);
+}
+
+#h4{ left: calc((100%/8)*7);
+    top: calc((100%/8)*3);
+    background-color: rgb(233, 240, 247);
+}  */
+
+/* ////////////////////line-5///////////////////////////////// */
+
+/* #a5{ top: calc((100%/8)*4); background-color: rgb(233, 240, 247); }
+
+#b5{ left: calc(100%/8);
+    top: calc((100%/8)*4);
+}
+
+#c5{ left: calc((100%/8)*2);
+    top: calc((100%/8)*4);
+    background-color: rgb(233, 240, 247);
+}
+
+#d5{ left: calc((100%/8)*3);
+    top: calc((100%/8)*4);
+}
+
+#e5{ left: calc((100%/8)*4);
+    top: calc((100%/8)*4);
+    background-color: rgb(233, 240, 247);
+}
+
+#f5{ left: calc((100%/8)*5);
+    top: calc((100%/8)*4);
+}
+
+#g5{ left: calc((100%/8)*6);
+    top: calc((100%/8)*4);
+    background-color: rgb(233, 240, 247);
+}
+
+#h5{ left: calc((100%/8)*7);
+    top: calc((100%/8)*4);
+} */
+
+/* ////////////////////line-6///////////////////////////// */
+
+/* #a6{ top: calc((100%/8)*5); }
+
+#b6{ left: calc(100%/8);
+    top: calc((100%/8)*5);
+    background-color: rgb(233, 240, 247);
+}
+
+#c6{ left: calc((100%/8)*2);
+    top: calc((100%/8)*5);
+}
+
+#d6{ left: calc((100%/8)*3);
+    top: calc((100%/8)*5);
+    background-color: rgb(233, 240, 247);
+}
+
+#e6{ left: calc((100%/8)*4);
+    top: calc((100%/8)*5);
+}
+
+#f6{ left: calc((100%/8)*5);
+    top: calc((100%/8)*5);
+    background-color: rgb(233, 240, 247);
+}
+
+#g6{ left: calc((100%/8)*6);
+    top: calc((100%/8)*5);
+}
+
+#h6{ left: calc((100%/8)*7);
+    top: calc((100%/8)*5);
+    background-color: rgb(233, 240, 247);
+} */
+
+
+/* ///////////////line-7///////////////////////////// */
+
+/* #a7{ top: calc((100%/8)*6); background-color: rgb(233, 240, 247); }
+
+#b7{ left: calc(100%/8);
+    top: calc((100%/8)*6);
+}
+
+#c7{ left: calc((100%/8)*2);
+    top: calc((100%/8)*6);
+    background-color: rgb(233, 240, 247);
+}
+
+#d7{ left: calc((100%/8)*3);
+    top: calc((100%/8)*6);
+}
+
+#e7{ left: calc((100%/8)*4);
+    top: calc((100%/8)*6);
+    background-color: rgb(233, 240, 247);
+}
+
+#f7{ left: calc((100%/8)*5);
+    top: calc((100%/8)*6);
+}
+
+#g7{ left: calc((100%/8)*6);
+    top: calc((100%/8)*6);
+    background-color: rgb(233, 240, 247);
+}
+
+#h7{ left: calc((100%/8)*7);
+    top: calc((100%/8)*6);
+} */
+
+/* //////////////////line-8///////////////////////// */
+
+/* #a8{ top: calc((100%/8)*7); }
+
+#b8{ left: calc(100%/8);
+    top: calc((100%/8)*7);
+    background-color: rgb(233, 240, 247);
+}
+
+#c8{ left: calc((100%/8)*2);
+    top: calc((100%/8)*7);
+}
+
+#d8{ left: calc((100%/8)*3);
+    top: calc((100%/8)*7);
+    background-color: rgb(233, 240, 247);
+}
+
+#e8{ left: calc((100%/8)*4);
+    top: calc((100%/8)*7);
+}
+
+#f8{ left: calc((100%/8)*5);
+    top: calc((100%/8)*7);
+    background-color: rgb(233, 240, 247);
+}
+
+#g8{ left: calc((100%/8)*6);
+    top: calc((100%/8)*7);
+}
+
+#h8{ left: calc((100%/8)*7);
+    top: calc((100%/8)*7);
+    background-color: rgb(233, 240, 247);
+}  */
+
+</style>
+<body>
+    
+    
+    <script src="assets/jQuery/jquery-3.6.0.min.js"></script> 
+    <script>
+       
+    
+    </script>
+    
+</body>
+</html>

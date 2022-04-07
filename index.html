@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/normalize.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>ChessGame</title>
+   
+</head>
+<body>
+
+  
+      <div id="loader_container">
+        <img alt="" src="assets/image/loader.gif">
+      </div>
+  
+
+    <header>
+        <nav class=" navbar navbar-expand-lg navbar-dark " style="background-color: #5f8ba8;">
+            <div class="container-fluid ">
+              <a class="navs navbar-brand mt-1 " href="#" >
+                <img src="assets/image/chessboard.png" alt="" width="45" height="45" class="d-inline-block align-text-top"><span> CChess.com</span></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" id="nav-home" href="#">Home</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-start" href="#" >Start Game</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-about" href="#">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-help" href="#">Help</a>
+                  </li>
+                </ul>
+                <button class="btnlog" type="submit">LOGIN</button>
+                <button class="btnlog" type="submit">LOGOUT</button>
+              </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="homeWindow">
+      <section class="hwin">
+        <h1>Chess Championship</h1>
+        <button class="sbtn" id="btns" type="button"><img src="assets/image/play.png" alt="" width="60" height="30" class="d-inline-block align-text-center"> Play</button>
+        <button class="obtn" type="button"><img src="assets/image/settings.png" alt="" width="60" height="30" class="d-inline-block align-text-center"> Optoins</button>
+      </section>
+    </section>
+     
+
+    <section id="startWindow">
+    
+          <section class="score-board"> 
+            <div class="pColor">
+              <div><span>White</span></div>
+              <div><span>Black</span></div>
+            </div>
+            <div class="times">
+              <div id="whiteTime"><span>00 : 00 : 00</span></div>
+              <div id="blackTime"><span>00 : 00 : 00</span></div>
+            </div>
+            <div id="score">
+              <div><span>Score : <span>39</span></span></div>
+              <div><span>Score : <span>39.5</span></span></div>
+            </div>
+            <div class="buttons">
+              <button class="fbt" type="button"><img src="assets/image/start.png" alt="" width="25" height="25" class="d-inline-block align-text-center"> </button>
+              <button class="fbt" type="button"><img src="assets/image/less_than.png" alt="" width="25" height="25" class="d-inline-block align-text-center"></button>
+              <button class="fbt" type="button"><img src="assets/image/more_than.png" alt="" width="25" height="25" class="d-inline-block align-text-center"></button>
+              <button class="fbt" type="button"><img src="assets/image/end.png" alt="" width="25" height="25" class="d-inline-block align-text-center"></button>
+            </div>
+          </section>
+  
+
+ 
+          <section class="board">  
+                <div class="cell" id="a1"></div>             
+                <div class="cell dark" id="b1"></div>             
+                <div class="cell" id="c1"></div>            
+                <div class="cell dark" id="d1"></div>           
+                <div class="cell" id="e1"></div>             
+                <div class="cell dark" id="f1"></div>             
+                <div class="cell" id="g1"></div>
+                <div class="cell dark" id="h1"></div>
+             
+      
+                <div class="cell dark" id="a2"></div>             
+                <div class="cell" id="b2"></div>            
+                <div class="cell dark" id="c2"></div>              
+                <div class="cell" id="d2"></div>           
+                <div class="cell dark" id="e2"></div>            
+                <div class="cell" id="f2"></div>    
+                <div class="cell dark" id="g2"></div>           
+                <div class="cell" id="h2"></div>    
+        
+
+                <div class="cell" id="a3"></div>
+                <div class="cell dark" id="b3"></div>
+                <div class="cell" id="c3"></div>
+                <div class="cell dark" id="d3"></div>
+                <div class="cell" id="e3"></div>
+                <div class="cell dark" id="f3"></div>
+                <div class="cell" id="g3"></div>
+                <div class="cell dark" id="h3"></div>
+           
+       
+                <div class="cell dark" id="a4"></div>
+                <div class="cell" id="b4"></div>
+                <div class="cell dark" id="c4"></div>
+                <div class="cell" id="d4"></div>
+                <div class="cell dark" id="e4"></div>
+                <div class="cell" id="f4"></div>
+                <div class="cell dark" id="g4"></div>
+                <div class="cell" id="h4"></div>
+        
+
+                <div class="cell" id="a5"></div>
+                <div class="cell dark" id="b5"></div>
+                <div class="cell " id="c5"></div>
+                <div class="cell dark" id="d5"></div>
+                <div class="cell" id="e5"></div>
+                <div class="cell dark" id="f5"></div>
+                <div class="cell" id="g5"></div>
+                <div class="cell dark" id="h5"></div>
+            
+
+                <div class="cell dark" id="a6"></div>
+                <div class="cell" id="b6"></div>
+                <div class="cell dark" id="c6"></div>
+                <div class="cell" id="d6"></div>
+                <div class="cell dark" id="e6"></div>
+                <div class="cell" id="f6"></div>
+                <div class="cell dark" id="g6"></div>
+                <div class="cell" id="h6"></div>
+        
+
+                <div class="cell" id="a7"></div>
+                <div class="cell dark" id="b7"></div>
+                <div class="cell" id="c7"></div>
+                <div class="cell dark" id="d7"></div>
+                <div class="cell" id="e7"></div>
+                <div class="cell dark" id="f7"></div>
+                <div class="cell" id="g7"></div>
+                <div class="cell dark" id="h7"></div>
+         
+
+                <div class="cell dark" id="a8"></div>
+                <div class="cell" id="b8"></div>
+                <div class="cell dark" id="c8"></div>
+                <div class="cell" id="d8"></div>
+                <div class="cell dark" id="e8"></div>
+                <div class="cell" id="f8"></div>
+                <div class="cell dark" id="g8"></div>
+                <div class="cell" id="h8"></div>
+
+
+                <img id="rb1" src="assets/image/rook_black.png" alt="">
+
+                <img id="nb1" src="assets/image/knight_black.png" alt="">
+           
+                <img id="bb1" src="assets/image/bishop_black.png" alt="">
+             
+                <img id="qb" src="assets/image/queen_black.png" alt="">
+        
+                <img id="kb" src="assets/image/king_black.png" alt="">
+       
+                <img id="bb2" src="assets/image/bishop_black.png" alt="">
+                
+                <img id="nb2" src="assets/image/knight_black.png" alt="">
+              
+                <img id="rb2" src="assets/image/rook_black.png" alt="">
+              
+                <img id="pb1" src="assets/image/pawn_black.png" alt="">
+               
+                <img id="pb2" src="assets/image/pawn_black.png" alt="">
+            
+                <img id="pb3" src="assets/image/pawn_black.png" alt="">
+           
+                <img id="pb4" src="assets/image/pawn_black.png" alt="">
+              
+                <img id="pb5" src="assets/image/pawn_black.png" alt="">
+             
+                <img id="pb6" src="assets/image/pawn_black.png" alt="">
+              
+                <img id="pb7" src="assets/image/pawn_black.png" alt="">
+            
+                <img id="pb8" src="assets/image/pawn_black.png" alt="">
+        
+          </section>
+    </section>
+
+    <script  src="assets/JS/script.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <script src="assets/jQuery/jquery-3.6.0.min.js"></script> 
+    
+    <script>
+      $(window).on('load', function () {
+        console.log("Window Loaded");
+        $("#loader_container").fadeOut(1000);
+      });
+
+      $(document).ready(function () {
+        console.log("Document Ready");
+      });
+
+      $(function () {
+        console.log("Document Loaded");
+      });
+    </script>
+
+    <script>
+        document.getElementById("startWindow").style.display="none";
+  
+        document.getElementById("nav-home").addEventListener("click",function () {
+            document.getElementById("homeWindow").style.display="block";
+            document.getElementById("startWindow").style.display="none";
+        });
+ 
+        document.getElementById("nav-start").addEventListener("click",function () {
+            document.getElementById("startWindow").style.display="block";
+            document.getElementById("homeWindow").style.display="none";
+        });
+
+        document.getElementById("btns").addEventListener("click",function () {
+            document.getElementById("startWindow").style.display="block";
+            document.getElementById("homeWindow").style.display="none";
+        });
+ 
+    </script>
+
+    
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    
+</body>
+</html>
