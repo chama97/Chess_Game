@@ -1,4 +1,12 @@
 
+$(window).on('load', function () {
+
+    console.log("Window Loaded");
+    $("#loader_container").fadeOut(1000);
+
+});
+
+
 $(document).ready(function () {
 
     var selection = { piece:'', player:'', row:'', column:''},
@@ -14,7 +22,7 @@ $(document).ready(function () {
             return
         }
         $(this).attr('empty', false)
-        $(this).css("background", "url(assets/image/"+player+"/"+piece+".png)").css("background-size", "60px 60px")
+        $(this).css("background", "url(assets/image/"+player+"/"+piece+".png)").css("background-size", "100% 100%")
         .css('background-color', squareColor)
         .css('z-index', '3')
     })
@@ -30,9 +38,9 @@ $(document).ready(function () {
         if(targplayer == playerturn){
             $("[empty= 'false']").each(function(){
                 if($(this).hasClass('dark')){
-                    var bgcolor = 'gray'
+                    var bgcolor = 'rgb(23, 127, 168)'
                 }else{
-                    var bgcolor = 'white'
+                    var bgcolor = 'rgb(141, 180, 222)'
                 }
                 $(this).css('background-color', bgcolor)
             })
@@ -56,14 +64,14 @@ $(document).ready(function () {
 
     function movePiece(player, piece, row, column, targrow, targcolumn){
         if($("[row= '"+row+"'][column= '"+column+"']").hasClass('dark')){
-            var bgcolor = 'gray'
+            var bgcolor = 'rgb(23, 127, 168)'
         }else{
-            var bgcolor = 'white'
+            var bgcolor = 'rgb(141, 180, 222)'
         }
         if($("[row= '"+targrow+"'][column= '"+targcolumn+"']").hasClass('dark')){
-            var targbgcolor = 'gray'
+            var targbgcolor = 'rgb(23, 127, 168)'
         }else{
-            var targbgcolor = 'white'
+            var targbgcolor = 'rgb(141, 180, 222)'
         }
         $("[row= '"+row+"'][column= '"+column+"']").css('background-image', 'none').css('background-color', bgcolor).attr('piece', '').attr('player', '').attr('empty', 'true')
 
@@ -75,7 +83,7 @@ $(document).ready(function () {
         }
 
         $("[row= '"+targrow+"'][column= '"+targcolumn+"']").css('background', "url(assets/image/"+player+"/"+piece+".png)")
-        .css("background-size", "60px 60px")
+        .css("background-size", "100% 100%")
         .css('background-color', targbgcolor).attr('player', player).attr('piece', piece).attr('empty', false)
         console.log('successful '+ piece + ' move')
         selection = { piece:'', player:'', row:'', column:''}
@@ -87,7 +95,6 @@ $(document).ready(function () {
             playerturn = 'white'
             console.log('swapped ', playerturn)
         }
-
     }
 
 
@@ -100,22 +107,22 @@ $(document).ready(function () {
 
         if(piece == 'pawn'){
             if(player == 'white'){
-                var rowlogic = row+1
+                var rowlogic = row + 1
                 if(row == 2){
-                    firstmoverowlogic = row+2
+                    firstmoverowlogic = row + 2
                 }
             } else if(player == 'black'){
-                var rowlogic = row-1
+                var rowlogic = row - 1
                 if(row == 7){
-                    firstmoverowlogic = row-2
+                    var firstmoverowlogic = row - 2
                 }
             }
             if((targrow == rowlogic || targrow == firstmoverowlogic) && (((targcolumn == (column+1) ||
             targcolumn == (column-1)) && targpiece !='' && targplayer != player && targplayer !='') ||
             (column == targcolumn && targplayer == ''))){
-                canmove == true;
+                canmove = true;
             }else{
-                canmove == false;
+                canmove = false;
                 console.log('incorrect move')
             }
         }else if(piece == 'rook'){
@@ -150,7 +157,7 @@ $(document).ready(function () {
             if((targcolumn == colplusone && row == targrow) || (targcolumn == colminusone && row == targrow) ||
             (targrow == rowplusone && column == targcolumn) || (targrow == rowminusone && column == targcolumn) ||
             (targcolumn == colplusone && (targrow == rowplusone || targrow == rowminusone)) ||
-            (targcolumn == colminusone && (targrow == rowplusone || targrow ==rowminusone))){
+            (targcolumn == colminusone && (targrow == rowplusone || targrow == rowminusone))){
                 canmove = true;
             }
         }
@@ -164,12 +171,142 @@ $(document).ready(function () {
         console.log('ended')
     }
 
-    function diagonalCheck(){
-        console.log('ended')
+    function diagonalCheck(row, column, targrow, targcolumn){
+        let canmove = ''
+        if(targcolumn > column){
+            var loops = targcolumn - column
+            if(targrow > row && (targrow - row) == loops){
+                for(var x=1; x <= loops; x++){
+                    let loopcolumn = column + x,
+                    looprow = row + x
+                    if($("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    }else if(x == loops && $("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('player') !== playerturn){
+                        canmove = true;
+                    }else{
+                        canmove = false;
+                        break;
+                    }
+                }
+            }else if(row > targrow && (row - targrow) == loops){
+                for(var x=1; x<= loops; x++){
+                    let loopcolumn = column + x,
+                    looprow = row - x
+                    if($("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    }else if(x == loops && $("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('player') !== playerturn){
+                        canmove = true;
+                    }else{
+                        canmove = false;
+                        break;
+                    }
+                }
+            }else{
+                canmove = false;
+            }
+        }else if(column > targcolumn){
+            var loops = column - targcolumn;
+            if(targrow > row && (targrow - row) == loops){
+                for(var x=1; x <= loops; x++){
+                    let loopcolumn = column - x,
+                    looprow = row + x
+                    if($("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    }else if(x == loops && $("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('player') !== playerturn){
+                        canmove = true;
+                    }else{
+                        canmove = false;
+                        break;
+                    }
+                }
+        
+            }else if(row > targrow && (row - targrow) == loops){
+                for(var x=1; x<= loops; x++){
+                    let loopcolumn = column - x,
+                    looprow = row - x
+                    if($("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    }else if(x == loops && $("[column='"+loopcolumn+"'][row= '"+looprow+"']").attr('player') !== playerturn){
+                        
+                    }else{
+                        canmove = false;
+                        break;
+                    }
+                }
+            }else{
+                canmove = false;
+            }
+        }else{
+            canmove = false;
+        }
+        if(canmove != false && typeof canmove !== 'undefined'){
+            canmove = true;
+        }else{
+            console.log('is Undefind')
+        }
+        return canmove;
     }
 
-    function straightLineCheck(){
-        console.log('ended')
+    function straightLineCheck(row, column, targrow, targcolumn){
+        var canmove = ''
+        if(targrow == row){
+            console.log(column, targcolumn)
+
+            if(targcolumn > column){
+                var loops = targcolumn - column
+            }else if(column > targcolumn){
+                var loops = column - targcolumn
+            } else{
+                canmove = false;
+            }
+            for(var x=1; x <= loops; x++){
+                if(targcolumn > column){
+                    var looptargetcolumn = column + x
+                }else if(column > targcolumn){
+                    var looptargetcolumn = column - x
+                }
+                if($("[row='"+row+"'][column= '"+looptargetcolumn+"']").attr('empty') == 'true'){
+                    canmove = true;
+                } else {
+                    canmove = false;
+                    break;
+                }
+            }
+        }else if(targcolumn == column){
+            if(targrow > row){
+                var loops = targrow - row
+                for(var x=1; x <= loops; x++){
+                    let looptargetrow = row + x
+                    if($("[column='"+column+"'][row= '"+looptargetrow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    } else {
+                        canmove = false;
+                        break;
+                    }
+                }
+            }else if(targrow < row){
+                var loops = row - targrow
+                for(var x=1; x <= loops; x++){
+                    let looptargetrow = row - x
+                    if($("[column='"+column+"'][row= '"+looptargetrow+"']").attr('empty') == 'true'){
+                        canmove = true;
+                    } else {
+                        canmove = false;
+                        break;
+                    }
+                }
+            }else{
+                canmove = false;
+            }
+        }else{
+            canmove = false;
+        }
+        if(canmove != false && typeof canmove !== 'undefined'){
+            canmove = true;
+        }else{
+            console.log(canmove, ' is undefind')
+        }
+        return canmove;
     }
 
 })
